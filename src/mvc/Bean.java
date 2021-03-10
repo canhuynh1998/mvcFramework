@@ -1,8 +1,10 @@
-package mcv;
+package mvc;
 
 import java.beans.*;
 import java.io.*;
-
+/*
+ *   Hoc Can 3/9/2021: created files
+ * */
 abstract public class Bean implements Serializable {
 
     private static final long serialVersionUID = 1L;

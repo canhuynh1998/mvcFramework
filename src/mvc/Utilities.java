@@ -1,9 +1,11 @@
-package mcv;
+package mvc;
 import java.awt.event.*;
 import java.io.*;
 import java.util.Random;
 import javax.swing.*;
-
+/*
+ *   Hoc Can 3/9/2021: created files
+ * */
 public class Utilities {
 
     // asks user a yes/no question
