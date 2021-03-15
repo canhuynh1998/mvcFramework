@@ -5,9 +5,10 @@ package mvc;
  * */
 public abstract class Command {
     private Model model;
-    public Command(Model model){
+    public Command(Model mod){
+        model = mod;
     }
-    public abstract void execute();
+    public abstract void execute() throws Exception;
 
 
 }

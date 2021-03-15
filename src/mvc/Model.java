@@ -16,13 +16,15 @@ public abstract class Model extends Bean{
         return fileName;
     }
 
-    public void setFileName(String fileName){ fileName = fileName; }
+    public void setFileName(String name){ fileName = name; }
 
     public Boolean getUnsavedChanges(){ return unsaveChanged; }
 
     public void setUnsavedChanges(boolean unsavedChanges){ unsaveChanged = unsavedChanges; }
 
+    public void saved(){ unsaveChanged = false; }
     public void changed(){
-
+        firePropertyChange("Property",null,this);
+        unsaveChanged = true;
     }
 }

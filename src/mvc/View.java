@@ -11,8 +11,20 @@ import java.beans.PropertyChangeListener;
 public class View extends JPanel implements PropertyChangeListener {
     private Model model;
 
+    public View(Model mod){
+        model = mod;
+        model.addPropertyChangeListener(this);
+    }
+
+    public void setModel(Model mod){
+        model.removePropertyChangeListener(this);
+        model = mod;
+        model.initSupport();
+        model.addPropertyChangeListener(this);
+        repaint();
+    }
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-
+        repaint();
     }
 }
