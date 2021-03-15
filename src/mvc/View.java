@@ -9,7 +9,7 @@ import java.beans.PropertyChangeListener;
  *   Hoc Can 3/14/2021: modified
  * */
 public class View extends JPanel implements PropertyChangeListener {
-    private Model model;
+    protected Model model;
 
     public View(Model mod){
         model = mod;
