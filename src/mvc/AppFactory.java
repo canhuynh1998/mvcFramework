@@ -1,7 +1,7 @@
 package mvc;
 /*
  *   Hoc Can 3/9/2021: created files
- *   Hoc Can 3/14/2021: modified
+ *   Hoc Can 3/14/2021: modified AppFactory, Command, Model
  * */
 public interface AppFactory {
     public Model makeModel();
