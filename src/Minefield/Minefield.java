@@ -7,6 +7,12 @@ public class Minefield extends Model {
     // private int field[][]   //this is the grid.
     private int locationX;    // current x-location in field[][]
     private int locationY;    // current y-location in field[][]
+    // private MoveCommand move;
+    // private List<Patch> visited;
+    // public static int PERCENT_MINED = 5; // percentage of patches to be set as mined.
+
+
+
     class MoveCommand extends Command {
         Heading heading;
         Model model;
@@ -72,8 +78,8 @@ public class Minefield extends Model {
             locationX = playerX;
             locationY = playerY;
 
-            //field[locationX][locationY].setMined();
-            //model.change();
+            //field[locationX][locationY].setMined(); //Set this mine to be mined.
+            //model.change(); //Fire Property Change.
         }
 
         public void validate(){
@@ -87,6 +93,6 @@ public class Minefield extends Model {
         }
     }
 
-    private MoveCommand move;
+
 
 }
