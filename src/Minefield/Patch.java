@@ -13,7 +13,11 @@ public class Patch {
     }
 
     public void setMined() {
-        mined = !mined;
+        mined = true;
+    }
+
+    public void setUnmined(){
+        mined = false;
     }
 
 }

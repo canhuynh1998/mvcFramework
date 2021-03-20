@@ -4,63 +4,83 @@ import mvc.Command;
 import mvc.Model;
 
 public class Minefield extends Model {
-    private int playerX;
-    private int playerY;
+    // private int field[][]   //this is the grid.
+    private int locationX;    // current x-location in field[][]
+    private int locationY;    // current y-location in field[][]
     class MoveCommand extends Command {
         Heading heading;
         Model model;
 
+        private int playerX; // variable to hold current x-location.
+        private int playerY; // variable to hold current y-location.
+
         public MoveCommand(Model mod) {
             super(mod);
             model = mod;
+            playerY = locationY;
+            playerX = locationX;
         }
 
         // Uncomment change() after it is implemented.
+        // Uncomment validate() after field[][] is instantiated.
         public void execute() throws Exception {
             if (!(model instanceof Minefield)){
                 throw new Exception("Model must be a Minefield.");
             }
             switch(heading){
                 case N -> {
+                    // validate();
                     playerY--;
-                    // model.change();
                 }
                 case E -> {
+                    // validate();
                     playerX --;
-                    // model.change();
                 }
                 case S -> {
+                    // validate();
                     playerY++;
-                    // model.change();
                 }
                 case W -> {
+                    // validate();
                     playerX ++;
-                    // model.change();
                 }
 
                 case NE -> {
+                    // validate();
                     playerX --;
                     playerY --;
-                    // model.change();
                 }
                 case NW -> {
+                    // validate();
                     playerX ++;
                     playerY --;
-                    // model.change();
                 }
                 case SE -> {
+                    // validate();
                     playerX --;
                     playerY ++;
-                    // model.change();
                 }
                 case SW -> {
+                    // validate();
                     playerX ++;
                     playerY ++;
-                    // model.change();
                 }
-                default -> System.out.println("Invalid move");
+                default -> throw new Exception("Invalid move");
             }
+
+            // Set new location after move is validated.
+            locationX = playerX;
+            locationY = playerY;
+
+            //field[locationX][locationY].setMined();
+            //model.change();
         }
+
+        public void validate(){
+           // if !((playerX > field.length || playerX < 0) && (field > patches[0].length || playerY < 0)) {
+            // throw new Exception("Cannot move outside the field.")
+        }
+
 
         public void setHeading(Heading h){
             heading = h;
