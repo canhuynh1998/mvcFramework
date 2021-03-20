@@ -12,7 +12,10 @@ public class Minefield extends Model {
     // public static int PERCENT_MINED = 5; // percentage of patches to be set as mined.
 
 
-
+    // Author: Paul Junver Soriano
+    // Last Revision Date: 3/20/2021, 4:27 PM
+    // Revisions: Updated MoveCommand and Patch classes.
+    //            Added possible instance variables and methods as comments.
     class MoveCommand extends Command {
         Heading heading;
         Model model;
