@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60f486da-cfd0-4544-b462-e067cf83d295" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Minefield/Heading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Minefield/Heading.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Minefield/Minefield.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Minefield/Minefield.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Minefield/Patch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Minefield/Patch.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,25 +89,26 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Did MoveCommand." />
     <MESSAGE value="Updated MoveCommand and Patch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated MoveCommand and Patch" />
+    <MESSAGE value="Added revision history comments." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added revision history comments." />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1472" y="118" key="#Project_Structure" timestamp="1616278976296">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-1472" y="118" key="#Project_Structure/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616278976296" />
-    <state x="-1366" y="112" key="CommitChangelistDialog2" timestamp="1616280712061">
+    <state x="-1366" y="112" key="CommitChangelistDialog2" timestamp="1616282892970">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="-1366" y="112" key="CommitChangelistDialog2/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616280712061" />
+    <state x="-1366" y="112" key="CommitChangelistDialog2/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616282892970" />
     <state x="-1472" y="131" key="SettingsEditor" timestamp="1616205943939">
       <screen x="-1920" y="25" width="1920" height="1055" />
     </state>
     <state x="-1472" y="131" key="SettingsEditor/0.25.1280.775/-1920.25.1920.1055@-1920.25.1920.1055" timestamp="1616205943939" />
-    <state x="-1360" y="270" key="Vcs.Push.Dialog.v2" timestamp="1616280718089">
+    <state x="-1360" y="270" key="Vcs.Push.Dialog.v2" timestamp="1616282898530">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="-1360" y="270" key="Vcs.Push.Dialog.v2/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616280718089" />
+    <state x="-1360" y="270" key="Vcs.Push.Dialog.v2/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616282898530" />
     <state x="-1360" y="289" key="Vcs.Push.Dialog.v2/0.25.1280.775/-1920.25.1920.1055@-1920.25.1920.1055" timestamp="1616205651028" />
     <state x="-1295" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1616280171888">
       <screen x="-1920" y="0" width="1920" height="1080" />

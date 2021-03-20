@@ -18,14 +18,12 @@ public class Minefield extends Model {
     //            Added possible instance variables and methods as comments.
     class MoveCommand extends Command {
         Heading heading;
-        Model model;
 
         private int playerX; // variable to hold current x-location.
         private int playerY; // variable to hold current y-location.
 
         public MoveCommand(Model mod) {
             super(mod);
-            model = mod;
             playerY = locationY;
             playerX = locationX;
         }
@@ -82,7 +80,8 @@ public class Minefield extends Model {
             locationY = playerY;
 
             //field[locationX][locationY].setMined(); //Set this mine to be mined.
-            //model.change(); //Fire Property Change.
+            // Minefield mine = (Minefield) model
+            //mine.change(); //Fire Property Change.
         }
 
         public void validate(){
