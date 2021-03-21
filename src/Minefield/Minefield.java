@@ -13,7 +13,7 @@ public class Minefield extends Model {
 
 
     // Author: Paul Junver Soriano
-    // Last Revision Date: 3/20/2021, 4:27 PM
+    // Last Revision Date: 3/20/2021, 6:50 PM
     // Revisions: Updated MoveCommand and Patch classes.
     //            Added possible instance variables and methods as comments.
     class MoveCommand extends Command {
@@ -36,41 +36,41 @@ public class Minefield extends Model {
             }
             switch(heading){
                 case N -> {
-                    // validate();
                     playerY--;
+                    // validate();
                 }
                 case E -> {
-                    // validate();
                     playerX --;
+                    // validate();
                 }
                 case S -> {
-                    // validate();
                     playerY++;
+                    // validate();
                 }
                 case W -> {
-                    // validate();
                     playerX ++;
+                    // validate();
                 }
 
                 case NE -> {
-                    // validate();
                     playerX --;
                     playerY --;
+                    // validate();
                 }
                 case NW -> {
-                    // validate();
                     playerX ++;
                     playerY --;
+                    // validate();
                 }
                 case SE -> {
-                    // validate();
                     playerX --;
                     playerY ++;
+                    // validate();
                 }
                 case SW -> {
-                    // validate();
                     playerX ++;
                     playerY ++;
+                    // validate();
                 }
                 default -> throw new Exception("Invalid move");
             }
