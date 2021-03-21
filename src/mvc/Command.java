@@ -9,6 +9,4 @@ public abstract class Command {
         model = mod;
     }
     public abstract void execute() throws Exception;
-
-
 }

@@ -1,6 +1,5 @@
 package mineField;
 
-import mvc.Bean;
 import mvc.Model;
 /*
 *   Hoc Can 3/15/2021: created file

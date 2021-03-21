@@ -38,6 +38,24 @@ public class MineFieldFactory implements AppFactory {
 
     @Override
     public Command makeEditCommand(Model model, String type) {
+        //TODO: add functions
+        if(type.equals("N")){
+
+        }else if(type.equals("S")){
+
+        }else if(type.equals("W")){
+
+        }else if(type.equals("E")){
+
+        }else if(type.equals("NE")){
+
+        }else if(type.equals("NW")){
+
+        }else if(type.equals("SE")){
+
+        }else if(type.equals("SW")){
+
+        }
         return null;
     }
 }

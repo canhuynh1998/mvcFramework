@@ -1,5 +1,7 @@
 package mvc;
 
+import tools.Utilities;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -72,6 +74,7 @@ public class AppPanel extends JPanel implements PropertyChangeListener, ActionLi
         if (model.getFileName() == null){
             saveAs();
         }else{
+            // set unsaveChanged to false
             model.saved();
             ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(model.getFileName()));
             os.writeObject(model);
@@ -80,11 +83,12 @@ public class AppPanel extends JPanel implements PropertyChangeListener, ActionLi
     }
 
     private void saveAs() throws Exception{
-        String fName = Utilities.getFileName(null, false);
-        if(!fName.isEmpty()) {
-            model.setFileName(fName);
-            model.saved(); // set unsavedChanges to false before writing the object
-            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(fName));
+        String fileName = Utilities.getFileName(null, false);
+        if(!fileName.isEmpty()) {
+            model.setFileName(fileName);
+            // set unsaveChanged to false
+            model.saved();
+            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(fileName));
             os.writeObject(model);
             os.close();
         }
@@ -98,52 +102,20 @@ public class AppPanel extends JPanel implements PropertyChangeListener, ActionLi
                 model = factory.makeModel();
                 view.setModel(model);
             } else if (cmd.equals("Save")) {
-
-//                if (model.getFileName() == null){
-//                    String fName = Utilities.getFileName(null, false);
-//                    if(!fName.isEmpty()) {
-//                        model.setFileName(fName);
-//                        model.saved(); // set unsavedChanges to false before writing the object
-//                        ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(fName));
-//                        os.writeObject(model);
-//                        os.close();
-//                    }
-//                }else{
-//                    model.saved();
-//                    ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(model.getFileName()));
-//                    os.writeObject(model);
-//                    os.close();
-//                }
                 save();
             } else if (cmd.equals("Save as")) {
                 saveAs();
-//                String fName = Utilities.getFileName(null, false);
-//                if(!fName.isEmpty()) {
-//                    model.setFileName(fName);
-//                    model.saved(); // set unsavedChanges to false before writing the object
-//                    ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(fName));
-//                    os.writeObject(model);
-//                    os.close();
-//                }
             } else if (cmd.equals("Open")) {
-                String fName = Utilities.getFileName(model.getFileName(), true);
-                if(!fName.isEmpty()) {
-                    ObjectInputStream is = new ObjectInputStream((new FileInputStream((fName))));
+                String fileName = Utilities.getFileName(model.getFileName(), true);
+                if(!fileName.isEmpty()) {
+                    ObjectInputStream is = new ObjectInputStream((new FileInputStream((fileName))));
                     model = (Model) is.readObject();
                     view.setModel(model);
                 }
             } else if (cmd.equals("Quit")) {
-                // check for changes, if the model was changed, ask the user to save
-                if(model.getUnsavedChanges() && Utilities.confirm("Save changes before quitting?")){
-//                    save();
-                    if (model.getFileName() == null){
-                        saveAs();
-                    }else{
-                        model.saved();
-                        ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(model.getFileName()));
-                        os.writeObject(model);
-                        os.close();
-                    }
+                // Request for save if there is unsaved change
+                if(model.getUnsavedChanges() && Utilities.confirm("Save changes before quitting?")) {
+                    save();
                 }
                 System.exit(1);
             } else if (cmd.equals("Help")) {
@@ -161,6 +133,11 @@ public class AppPanel extends JPanel implements PropertyChangeListener, ActionLi
         }
     }
     protected void handleException(Exception e){
-        Utilities.error(e);
+        if(e == null){
+            Utilities.error("Unrecognized Command!!");
+        }else{
+            Utilities.error(e);
+        }
+
     }
 }
