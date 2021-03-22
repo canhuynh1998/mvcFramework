@@ -1,9 +1,10 @@
-package mineField;
-import java.awt.*;
-import javax.swing.*;
+package Minefield;
+import mvc.AppFactory;
+import mvc.AppPanel;
 
-import mvc.*;
-import stopLight.StoplightFactory;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 
 /*
 *   Hoc Can 3/15/2021: implemented MineFieldPanel
@@ -65,9 +66,23 @@ public class MineFieldPanel extends AppPanel {
         //add(buttonPanel);
         //add(view);
     }
+
+    public void actionPerformed(ActionEvent e) {
+        String cmd = e.getActionCommand();
+        try {
+            if (cmd.equals("NW")){
+
+            } else if (cmd.equals("N")) {
+                ;
+            } else {
+            }
+        }catch(Exception er) {
+            handleException(er);
+        }
+    }
+
     public static void main(String[] args) {
-        AppFactory factory = new StoplightFactory();
-        //AppFactory factory = new MineFieldFactory();
+        AppFactory factory = new MineFieldFactory();
         AppPanel panel = new MineFieldPanel(factory);
         panel.display();
     }
