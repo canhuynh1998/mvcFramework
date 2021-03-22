@@ -1,4 +1,4 @@
-package mineField;
+package Minefield;
 
 import mvc.Command;
 import mvc.Model;
@@ -13,5 +13,5 @@ public class MineFieldCommand extends Command {
     }
 
     @Override
-    public void execute() { }
+    public void execute() throws Exception { }
 }
