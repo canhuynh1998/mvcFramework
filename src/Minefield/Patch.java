@@ -55,9 +55,6 @@ public class Patch {
         mined = true;
     }
 
-    public void setUnmined(){
-        mined = false;
-    }
     public void setExit() {
         exit = true;
     }
