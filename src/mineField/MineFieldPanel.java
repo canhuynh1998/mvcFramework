@@ -1,10 +1,10 @@
 package Minefield;
+
 import mvc.AppFactory;
 import mvc.AppPanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 
 /*
 *   Hoc Can 3/15/2021: implemented MineFieldPanel
@@ -65,20 +65,6 @@ public class MineFieldPanel extends AppPanel {
 //        controlPanel.add(change);
         //add(buttonPanel);
         //add(view);
-    }
-
-    public void actionPerformed(ActionEvent e) {
-        String cmd = e.getActionCommand();
-        try {
-            if (cmd.equals("NW")){
-
-            } else if (cmd.equals("N")) {
-                ;
-            } else {
-            }
-        }catch(Exception er) {
-            handleException(er);
-        }
     }
 
     public static void main(String[] args) {

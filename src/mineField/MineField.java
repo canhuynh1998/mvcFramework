@@ -1,119 +1,22 @@
 package Minefield;
 
-import mvc.Command;
 import mvc.Model;
 import tools.Utilities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 // Author: Paul Junver Soriano
-// Last Revision Date: 3/21/2021, 11:50 PM
-// Revisions: Created the MineField class.
+// Last Revision Date: 3/22/2021, 2:50 PM Changed changed() method.
+// Revisions: 3/21/2021, 11:50 PM Created the MineField class.
 public class MineField extends Model {
     protected Patch field[][];   //this is the grid.
     private int locationX;    // current x-location in field[][]
     private int locationY;    // current y-location in field[][]
-    private List<Command> commands; // List of commands.
-    private MoveCommand move; // Move command specific for MineField.
+    private MineFieldCommand move; // Move command specific for MineField.
 
     // Constants.
     public final int  PERCENT_MINED = 5; // percentage of patches to be set as mined.
     public final int  FIELDSIZE = 20; // Size of Grid.
 
-    // MoveCommand nested class extending Command
-    class MoveCommand extends Command {
-        Heading heading;
-        private int playerX; // variable to hold current x-location.
-        private int playerY; // variable to hold current y-location.
-
-        public MoveCommand(Model mod) {
-            super(mod);
-            playerY = locationY;
-            playerX = locationX;
-        }
-
-        public void execute() throws Exception {
-            if (!(model instanceof MineField)){
-                throw new Exception("Model must be a Minefield.");
-            }
-            switch(heading){
-                case N: {
-                    playerY--;
-                    break;
-                }
-                case E: {
-                    playerX ++;
-                    break;
-                }
-                case S: {
-                    playerY++;
-                    break;
-                }
-                case W: {
-                    playerX --;
-                    break;
-                }
-
-                case NE: {
-                    playerX ++;
-                    playerY --;
-                    break;
-                }
-                case NW: {
-                    playerX --;
-                    playerY --;
-                    break;
-                }
-                case SE: {
-                    playerX ++;
-                    playerY ++;
-                    break;
-                }
-                case SW: {
-                    playerX --;
-                    playerY ++;
-                    break;
-                }
-                default: Utilities.error(new Exception("Invalid move"));
-            }
-
-            if (!validMove()){
-                throw new Exception("Cannot move outside the grid.");
-            } else if (field[playerX][playerY].isMined()){
-                Utilities.error(new Exception("Stepped on a mine. Game over."));
-            } else {
-                // Store old location values.
-                int oldX = locationX;
-                int oldY = locationY;
-
-                // Set new location after move is validated.
-                locationX = playerX;
-                locationY = playerY;
-                field[locationX][locationY].setMined(); //Set this mine to be mined.
-                field[locationX][locationY].setVisited();
-                // Fire Property Change
-                model.firePropertyChange("locationX", oldX, locationX);
-                model.firePropertyChange("locationY", oldY, locationY);
-            }
-        }
-
-        public boolean validMove() {
-            return !((playerX > FIELDSIZE || playerX < 0) && (playerY > FIELDSIZE || playerY < 0));
-        }
-
-        public void setHeading(Heading h){
-            heading = h;
-        }
-    }
-
     public MineField() {
-        // Create new List of Commands.
-        commands = new ArrayList<>();
-
-        // Create new MoveCommand object.
-        move = new MoveCommand(this);
-
         // Initialize grid with all Patches unmined.
         field = new Patch[FIELDSIZE][FIELDSIZE];
         for (int row = 0; row < FIELDSIZE; row++) {
@@ -141,8 +44,10 @@ public class MineField extends Model {
         // Start at the top left Patch.
         locationX = 0;
         locationY = 0;
+        firePropertyChange("locationX", locationX, locationX);
+        firePropertyChange("locationY", locationY, locationY);
 
-        // Mark this patch as a visited patch.
+        // Set this Patch as visited.
         field[locationX][locationY].setVisited();
 
         // For debugging purposes:
@@ -157,17 +62,16 @@ public class MineField extends Model {
 //        }
     }
 
-    public void addCommand(Command cmmd){
-        commands.add(cmmd);
+    public void move(MineFieldCommand command) {
+        move = command;
     }
 
-    public void move(Heading h){
-        move.setHeading(h);
-        try {
-            move.execute();
-        } catch (Exception e) {
-            Utilities.error(e);
-        }
+    public int currentX(){
+        return locationX;
+    }
+
+    public int currentY(){
+        return locationY;
     }
 
     // Helper method to setMinedNeighbors
@@ -206,10 +110,78 @@ public class MineField extends Model {
         }
     }
 
-//    @Override
-//    public void changed(){
-//        firePropertyChange("Property",null,this);
-//    }
+    @Override
+    public void changed(){
+        int playerY = locationY;
+        int playerX = locationX;
+        switch(move.heading){
+            case N: {
+                playerY--;
+                break;
+            }
+            case E: {
+                playerX ++;
+                break;
+            }
+            case S: {
+                playerY++;
+                break;
+            }
+            case W: {
+                playerX --;
+                break;
+            }
+
+            case NE: {
+                playerX ++;
+                playerY --;
+                break;
+            }
+            case NW: {
+                playerX --;
+                playerY --;
+                break;
+            }
+            case SE: {
+                playerX ++;
+                playerY ++;
+                break;
+            }
+            case SW: {
+                playerX --;
+                playerY ++;
+                break;
+            }
+            default: Utilities.error(new Exception("Invalid move"));
+        }
+
+        if (playerX > FIELDSIZE || playerX < 0 || playerY > FIELDSIZE || playerY < 0){
+            Utilities.error(new Exception("Cannot move outside the grid."));
+        } else if (field[playerX][playerY].isMined()){
+            Utilities.error(new Exception("Stepped on a mine. Game over."));
+        } else if (field[playerX][playerY].isExit()){
+            field[playerX][playerY].setVisited();
+            Utilities.error(new Exception("Congratulations! You won."));
+        }
+        else {
+            // Store old location values.
+            int oldX = locationX;
+            int oldY = locationY;
+
+            // Set new location after move is validated.
+            locationX = playerX;
+            locationY = playerY;
+            field[locationX][locationY].setVisited();
+
+            // Fire Property Change
+            firePropertyChange("locationX", oldX, locationX);
+            firePropertyChange("locationY", oldY, locationY);
+            firePropertyChange("visited", false, true);
+
+            //To debug:
+            System.out.printf("Moved %s. New location X: %d, Y: %d%n", move.heading.toString(), locationX, locationY);
+        }
+    }
 
 //    public static void main (String[] args){
 //        MineField m = new MineField();
