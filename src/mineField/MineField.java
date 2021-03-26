@@ -1,4 +1,4 @@
-package Minefield;
+package minefield;
 
 import mvc.Model;
 import tools.Utilities;
@@ -6,6 +6,7 @@ import tools.Utilities;
 // Author: Paul Junver Soriano
 // Last Revision Date: 3/22/2021, 2:50 PM Changed changed() method.
 // Revisions: 3/21/2021, 11:50 PM Created the MineField class.
+// Hoc Can 3/26/2021: Modified play()
 public class MineField extends Model {
     protected Patch field[][];   //this is the grid.
     private int locationX;    // current x-location in field[][]
@@ -21,9 +22,9 @@ public class MineField extends Model {
         field = new Patch[FIELDSIZE][FIELDSIZE];
         for (int row = 0; row < FIELDSIZE; row++) {
             for (int col = 0; col < FIELDSIZE; col++) {
-                field[row][col] = new Patch();
-                field[row][col].setX(row);
-                field[row][col].setY(col);
+                field[row][col] = new Patch(row, col);
+//                field[row][col].setX(row);
+//                field[row][col].setY(col);
             }
         }
         // Make the bottom right patch the exit.
@@ -110,8 +111,9 @@ public class MineField extends Model {
         }
     }
 
-    @Override
-    public void changed(){
+    //for debug: public Patch[][] getPatch(){ return field; }
+
+    public void play() throws Exception{
         int playerY = locationY;
         int playerX = locationX;
         switch(move.heading){
@@ -158,10 +160,12 @@ public class MineField extends Model {
         if (playerX > FIELDSIZE || playerX < 0 || playerY > FIELDSIZE || playerY < 0){
             Utilities.error(new Exception("Cannot move outside the grid."));
         } else if (field[playerX][playerY].isMined()){
-            Utilities.error(new Exception("Stepped on a mine. Game over."));
+//            Utilities.error(new Exception("Stepped on a mine. Game over."));
+            throw new Exception("Stepped on a mine. Game over.");
         } else if (field[playerX][playerY].isExit()){
             field[playerX][playerY].setVisited();
-            Utilities.error(new Exception("Congratulations! You won."));
+            //Utilities.error(new Exception("Congratulations! You won."));
+            throw new Exception("Congratulations! You won.");
         }
         else {
             // Store old location values.
@@ -177,8 +181,10 @@ public class MineField extends Model {
             firePropertyChange("locationX", oldX, locationX);
             firePropertyChange("locationY", oldY, locationY);
             firePropertyChange("visited", false, true);
+            //changed();
 
             //To debug:
+            System.out.printf("Old location X: %d, Y: %d%n",  oldX, oldY);
             System.out.printf("Moved %s. New location X: %d, Y: %d%n", move.heading.toString(), locationX, locationY);
         }
     }

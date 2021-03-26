@@ -2,16 +2,16 @@ package mvc;
 
 import tools.Utilities;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import javax.swing.*;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
 /*
 *   Hoc Can 3/9/2021: created files
@@ -136,11 +136,6 @@ public class AppPanel extends JPanel implements PropertyChangeListener, ActionLi
         }
     }
     protected void handleException(Exception e){
-        if(e == null){
-            Utilities.error("Unrecognized Command!!");
-        }else{
             Utilities.error(e);
-        }
-
     }
 }

@@ -1,4 +1,4 @@
-package Minefield;
+package minefield;
 
 import mvc.Command;
 import mvc.Model;
@@ -13,16 +13,19 @@ public class MineFieldCommand extends Command {
 
     public MineFieldCommand(Model mod) {
         super(mod);
+
     }
 
     @Override
     public void execute() throws Exception {
         if (!(model instanceof MineField)) {
-            Utilities.error(new Exception("Model must instantiate Stoplight"));
+            Utilities.error(new Exception("Model must instantiate MineField"));
         }
         MineField mine = (MineField) model;
         mine.move(this);
-        mine.changed();
+        //mine.move(heading);
+        //mine.changed();
+        mine.play();
     }
 
 }

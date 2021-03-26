@@ -1,7 +1,8 @@
-package Minefield;
+package minefield;
 // Author: Paul Junver Soriano
 // Last Revision Date: 3/21/2021, 10:36 PM
 // Revisions: Added new instance variables.
+// Hoc Can 3/26/2021 add constructor
 public class Patch {
     private int x;
     private int y;
@@ -18,14 +19,23 @@ public class Patch {
         visited = false;
         minedNeighbors = 0;
     }
-    public Patch (Patch p){
-        this.x = p.x;
-        this.y = p.y;
-        this.mined = p.mined;
-        this.exit = p.exit;
-        this.minedNeighbors = p.minedNeighbors;
-        this.visited = p.visited;
+
+    public Patch(int x, int y){
+        this.x = x;
+        this.y = y;
+        mined = false;
+        exit = false;
+        visited = false;
+        minedNeighbors = 0;
     }
+//    public Patch (Patch p){
+//        this.x = p.x;
+//        this.y = p.y;
+//        this.mined = p.mined;
+//        this.exit = p.exit;
+//        this.minedNeighbors = p.minedNeighbors;
+//        this.visited = p.visited;
+//    }
 
     public int getMinedNeighbors() {
         return minedNeighbors;
