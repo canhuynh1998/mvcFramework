@@ -8,7 +8,6 @@ public abstract class Command {
     public Command(Model mod){
         model = mod;
     }
+
     public abstract void execute() throws Exception;
-
-
 }
