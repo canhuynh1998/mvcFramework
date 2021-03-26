@@ -5,10 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Minefield/Heading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Minefield/Heading.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Minefield/Minefield.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Minefield/Minefield.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Minefield/Patch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Minefield/Patch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mineField/MineFieldCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mineField/MineFieldCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mineField/MineFieldFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mineField/MineFieldFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mineField/MineFieldPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mineField/MineFieldPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mineField/MineFieldView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mineField/MineFieldView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +43,11 @@
         </map>
       </branch-storage>
     </favorite-branches>
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="paulsoriiiano &lt;53189056+paulsoriiiano@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="main" />
@@ -121,7 +123,8 @@
     <MESSAGE value="Moved validate() after possible move is done." />
     <MESSAGE value="did makeEditCommand and updated Minefield" />
     <MESSAGE value="created MineField class. Updated Patch and Heading. Worked on MineFieldView." />
-    <option name="LAST_COMMIT_MESSAGE" value="created MineField class. Updated Patch and Heading. Worked on MineFieldView." />
+    <MESSAGE value="Overrode propertyChanged() in MineFieldView" />
+    <option name="LAST_COMMIT_MESSAGE" value="Overrode propertyChanged() in MineFieldView" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1472" y="118" key="#Project_Structure" timestamp="1616391856106">
@@ -136,34 +139,34 @@
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-1181" y="413" width="441" height="262" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616448701204" />
-    <state x="-1366" y="112" key="CommitChangelistDialog2" timestamp="1616399011320">
+    <state x="-1366" y="112" key="CommitChangelistDialog2" timestamp="1616458244229">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="-1366" y="112" key="CommitChangelistDialog2/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616399011320" />
+    <state x="-1366" y="112" key="CommitChangelistDialog2/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616458244229" />
     <state x="554" y="112" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1616375055088" />
     <state x="-1366" y="112" key="CommitChangelistDialog2/0.25.1280.775/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616392092162" />
-    <state width="1920" height="321" key="GridCell.Tab.0.bottom" timestamp="1616458175480">
+    <state width="1920" height="321" key="GridCell.Tab.0.bottom" timestamp="1616458681194">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1920" height="321" key="GridCell.Tab.0.bottom/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616458175480" />
+    <state width="1920" height="321" key="GridCell.Tab.0.bottom/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616458681194" />
     <state width="1920" height="321" key="GridCell.Tab.0.bottom/0.25.1280.775/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616457163999" />
     <state width="1920" height="395" key="GridCell.Tab.0.bottom/0.25.1280.775/-1920.25.1920.1055@-1920.25.1920.1055" timestamp="1616450426938" />
-    <state width="1920" height="321" key="GridCell.Tab.0.center" timestamp="1616458175471">
+    <state width="1920" height="321" key="GridCell.Tab.0.center" timestamp="1616458681186">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1920" height="321" key="GridCell.Tab.0.center/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616458175471" />
+    <state width="1920" height="321" key="GridCell.Tab.0.center/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616458681186" />
     <state width="1920" height="321" key="GridCell.Tab.0.center/0.25.1280.775/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616457163997" />
     <state width="1920" height="395" key="GridCell.Tab.0.center/0.25.1280.775/-1920.25.1920.1055@-1920.25.1920.1055" timestamp="1616450426937" />
-    <state width="1920" height="321" key="GridCell.Tab.0.left" timestamp="1616458175464">
+    <state width="1920" height="321" key="GridCell.Tab.0.left" timestamp="1616458681181">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1920" height="321" key="GridCell.Tab.0.left/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616458175464" />
+    <state width="1920" height="321" key="GridCell.Tab.0.left/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616458681181" />
     <state width="1920" height="321" key="GridCell.Tab.0.left/0.25.1280.775/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616457163996" />
     <state width="1920" height="395" key="GridCell.Tab.0.left/0.25.1280.775/-1920.25.1920.1055@-1920.25.1920.1055" timestamp="1616450426932" />
-    <state width="1920" height="321" key="GridCell.Tab.0.right" timestamp="1616458175473">
+    <state width="1920" height="321" key="GridCell.Tab.0.right" timestamp="1616458681190">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1920" height="321" key="GridCell.Tab.0.right/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616458175473" />
+    <state width="1920" height="321" key="GridCell.Tab.0.right/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616458681190" />
     <state width="1920" height="321" key="GridCell.Tab.0.right/0.25.1280.775/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616457163998" />
     <state width="1920" height="395" key="GridCell.Tab.0.right/0.25.1280.775/-1920.25.1920.1055@-1920.25.1920.1055" timestamp="1616450426937" />
     <state width="1920" height="395" key="GridCell.Tab.1.bottom" timestamp="1616450426943">
@@ -192,10 +195,10 @@
     <state x="-1472" y="109" key="SettingsEditor/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616394882451" />
     <state x="-1472" y="109" key="SettingsEditor/0.25.1280.775/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616392264715" />
     <state x="-1472" y="131" key="SettingsEditor/0.25.1280.775/-1920.25.1920.1055@-1920.25.1920.1055" timestamp="1616205943939" />
-    <state x="-1360" y="270" key="Vcs.Push.Dialog.v2" timestamp="1616399024514">
+    <state x="-1360" y="270" key="Vcs.Push.Dialog.v2" timestamp="1616458253546">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="-1360" y="270" key="Vcs.Push.Dialog.v2/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616399024514" />
+    <state x="-1360" y="270" key="Vcs.Push.Dialog.v2/0.0.1280.800/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1616458253546" />
     <state x="560" y="270" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1616375063609" />
     <state x="-1360" y="289" key="Vcs.Push.Dialog.v2/0.25.1280.775/-1920.25.1920.1055@-1920.25.1920.1055" timestamp="1616205651028" />
     <state x="-1295" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1616393142835">
